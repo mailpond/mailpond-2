@@ -45,13 +45,8 @@ func NewStorage(baseFolder string) (s *Storage, err error) {
 	return
 }
 
-func (s *Storage) writeMailForReceipt(rcptAddr, tickFolderPart string, encodedContent []byte) (err error) {
-	_, normalizedAddr, err := emailnormalize.NormalizeEmailAddress(rcptAddr, nil)
-	if nil != err {
-		log.Printf("WARN: cannot normalize receipt address for writing mail [%s]: %v", rcptAddr, err)
-		return
-	}
-	rcptFolderPart := digestMailAddress(normalizedAddr)
+func (s *Storage) writeMailForReceipt(rcptAddr ReceiptAddress, tickFolderPart string, encodedContent []byte) (err error) {
+	rcptFolderPart := digestMailAddress(rcptAddr.Normalized)
 	destFolder := filepath.Join(s.baseFolder, tickFolderPart, rcptFolderPart)
 	if err = os.MkdirAll(destFolder, 0600); nil != err {
 		log.Printf("WARN: cannot create mail folder [%s]: %v", rcptAddr, err)

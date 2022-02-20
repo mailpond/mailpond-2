@@ -1,4 +1,4 @@
-package mail
+package mailpond
 
 import (
 	"context"

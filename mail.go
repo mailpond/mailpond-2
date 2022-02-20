@@ -1,7 +1,7 @@
-package mail
+package mailpond
 
 import (
-	"github.com/go-marshaltemabu/go-unixtime"
+	unixtime "github.com/go-marshaltemabu/go-unixtime"
 )
 
 type ReceiptAddress struct {

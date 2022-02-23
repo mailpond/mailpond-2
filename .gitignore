@@ -35,3 +35,5 @@ Icon
 *.test
 *.out
 .glide/
+
+/mailpond-serviced

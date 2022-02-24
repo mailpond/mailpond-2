@@ -53,7 +53,7 @@ func (s *Storage) writeMailForReceipt(rcptAddr ReceiptAddress, tickFolderPart st
 		return
 	}
 	fileNamePart := strconv.FormatInt(time.Now().UnixNano(), 10) + ".json"
-	mailFilePath := filepath.Join(rcptFolderPart, fileNamePart)
+	mailFilePath := filepath.Join(destFolder, fileNamePart)
 	fp, err := os.Create(mailFilePath)
 	if nil != err {
 		log.Printf("WARN: cannot create mail file [%s]: %v", mailFilePath, err)

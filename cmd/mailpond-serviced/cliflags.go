@@ -113,7 +113,7 @@ func (opts *commandOptions) normalize() (err error) {
 
 func parseCommandFlags() (cmdOpts *commandOptions, err error) {
 	cmdOpts = &commandOptions{}
-	flag.StringVar(&cmdOpts.mailDomainAddress, "mailDomain", defaultMailDomainAddr, "mail domain address")
+	flag.StringVar(&cmdOpts.mailDomainAddress, "mailDomain", "", "mail domain address")
 	flag.StringVar(&cmdOpts.smtpListenAddr, "smtpListen", defaultSMTPListenAddr, "listen address of SMTP service")
 	flag.StringVar(&cmdOpts.smtpTLSCert, "smtpTLSCert", "", "path of TLS certification file for SMTP service")
 	flag.StringVar(&cmdOpts.smtpTLSKey, "smtpTLSKey", "", "path of TLS private key for SMTP service")
